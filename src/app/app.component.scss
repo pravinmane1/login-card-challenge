@@ -14,7 +14,7 @@ $input-error-color: hsl(0, 100%, 66%);
 }
 
 .letter-spacing {
-  letter-spacing: 1px; 
+  letter-spacing: 1px;
 }
 
 .preview,
@@ -82,7 +82,7 @@ $input-error-color: hsl(0, 100%, 66%);
   .cvc {
     color: white;
     display: inline-block;
-    margin-top: 14vh;
+    margin-top: 100px;
     margin-left: 80%;
   }
 }
@@ -113,7 +113,6 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 80px;
   .thank-you-text {
     margin-top: 35px;
     margin-bottom: 10px;
@@ -154,6 +153,7 @@ button {
   font-size: 18px;
   font-family: "Space Grotesk";
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 button:disabled {
@@ -219,11 +219,14 @@ input[type="number"] {
     justify-content: center;
   }
 
+  .input {
+    justify-content: center !important;
+  }
+
   .input-card {
     margin-top: 0px;
   }
-  .display-card-front{
+  .display-card-front {
     min-width: 300px;
-
   }
 }
