@@ -1,14 +1,56 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [FormsModule, CommonModule],
 })
-export class AppComponent {
-  title = 'login-card-challenge';
+export class AppComponent implements OnInit {
+  title = 'card-challenge';
+  public formSubmitted: boolean = false;
+  public formModel!: {
+    name: string;
+    cardNumber: string;
+    expMonth: string;
+    expYear: string;
+    cvc: string;
+  };
+  @ViewChild('f') cardForm!: NgForm;
+
+  ngOnInit(): void {
+    this.formModel = {
+      name: '',
+      cardNumber: '',
+      expMonth: '',
+      expYear: '',
+      cvc: '',
+    };
+  }
+  onSubmit(ngForm: NgForm) {
+    this.formSubmitted = true;
+  }
+
+  resetForm() {
+    this.formSubmitted = false;
+  }
+
+  onCardNumberEnter(inputEvent: any) {
+    let cardNumber = inputEvent.target.value;
+
+    const cardNumberWithoutSpace = cardNumber.replaceAll(' ', '');
+    let cardNumberWithSpace = '';
+
+    for (let i = 0; i < cardNumberWithoutSpace.length; i++) {
+      if (i % 4 === 0 && i !== 0) {
+        cardNumberWithSpace += ' ' + cardNumberWithoutSpace.charAt(i);
+      } else {
+        cardNumberWithSpace += cardNumberWithoutSpace.charAt(i);
+      }
+    }
+    this.cardForm.form.patchValue({ cardNumber: cardNumberWithSpace });
+  }
 }
