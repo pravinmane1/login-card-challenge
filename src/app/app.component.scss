@@ -116,6 +116,9 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 300px;
+  margin: 30px;
+  width: 50%;
   .thank-you-text {
     margin-top: 35px;
     margin-bottom: 10px;
