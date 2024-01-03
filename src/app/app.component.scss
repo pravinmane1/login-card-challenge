@@ -51,6 +51,7 @@ $input-error-color: hsl(0, 100%, 66%);
     text-align: center;
     margin: 10px 70px;
     font-size: 25px;
+    min-width: 20ch;
   }
 
   .preview-front-info {
@@ -77,6 +78,7 @@ $input-error-color: hsl(0, 100%, 66%);
   border-radius: 10px;
   background: url("../assets/bg-card-back.png");
   background-size: cover;
+  background-position: center;
   box-shadow: 1px 1px 50px -20px;
 
   .cvc {
@@ -225,5 +227,9 @@ input[type="number"] {
   }
   .display-card-front {
     min-width: 300px;
+  }
+
+  .card-number {
+    margin: 10px 25px !important;
   }
 }
